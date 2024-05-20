@@ -1,3 +1,4 @@
+
 "use client"
 import fetchLeaderboard from '@/actions/fetchLeaderboardData';
 import { Analitycs } from '@/app/[locale]/leaderboard/getData';
@@ -52,6 +53,7 @@ const Leaderboard: React.FC<{ leaderboard: Analitycs }> = props => {
     smallSince: smallScreenFormatter.format(since),
     smallUntil: smallScreenFormatter.format(until),
   };
+
   const mappedData = props.leaderboard.members.map(data => {
     return {
       ...data,
@@ -64,6 +66,7 @@ const Leaderboard: React.FC<{ leaderboard: Analitycs }> = props => {
   const firstPlace = mappedData[0];
   const secondPlace = mappedData[1];
   const thirdPlace = mappedData[2];
+
 
   return (
     <div dir="ltr" className="font-inter">
@@ -78,6 +81,7 @@ const Leaderboard: React.FC<{ leaderboard: Analitycs }> = props => {
         <FirstPlacePerson data={firstPlace} place={1} />
         <DisplaySecoundPerson data={secondPlace} place={2} />
         <DisplayThirdPerson data={thirdPlace} place={3} />
+
         {mappedData.slice(3, -1).map((data, ind) => {
           return (
             <DisplayPerson data={data} key={data.node_id} place={ind + 4} />
@@ -91,6 +95,7 @@ const Leaderboard: React.FC<{ leaderboard: Analitycs }> = props => {
 export default LeaderboardPage;
 
 interface PersonPlace {
+
   data: Analitycs['members'][number] & {
     loginUrl: string;
     projects_name_urls: string[];
@@ -114,7 +119,9 @@ export const DisplayPerson: React.FC<PersonPlace> = ({ data, place }) => {
       <div className="flex flex-col w-full  ">
         <a
           className="flex justify-between flex-wrap gap-2 "
+
           href={data.loginUrl}
+
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -137,16 +144,19 @@ export const DisplayPerson: React.FC<PersonPlace> = ({ data, place }) => {
             </div>
           </div>
           <div className="text-indigo-800 flex gap-2  ">
+
             <span>Commit</span>
             <span>{data.stats.commits}</span>
           </div>
         </div>
         <div className="flex gap-2 flex-wrap">
           <h4 className="text-xs flex-grow w-full">Projects:</h4>
+
           {data.projects_names.map((project, ind) => {
             return (
               <a
                 key={ind}
+
                 href={data.projects_name_urls[ind]}
                 className="flex gap-1 items-center underline text-indigo-300 text-xs"
               >
@@ -180,6 +190,7 @@ export const DisplaySecoundPerson: React.FC<PersonPlace> = ({
       <div className="flex flex-col w-full  ">
         <a
           className="flex justify-between flex-wrap gap-2 "
+
           href={data.loginUrl}
           target="_blank"
           rel="noopener noreferrer"
@@ -205,6 +216,7 @@ export const DisplaySecoundPerson: React.FC<PersonPlace> = ({
             <span>{data.stats.commits}</span>
           </div>
         </div>
+
         <div className="flex gap-2 flex-wrap">
           <h4 className="text-xs flex-grow w-full">Projects:</h4>
           {data.projects_names.map((project, ind) => {
@@ -238,6 +250,7 @@ export const DisplayThirdPerson: React.FC<PersonPlace> = ({ data, place }) => {
       <div className="flex flex-col w-full  ">
         <a
           className="flex justify-between flex-wrap gap-2 "
+
           href={data.loginUrl}
           target="_blank"
           rel="noopener noreferrer"
@@ -266,14 +279,17 @@ export const DisplayThirdPerson: React.FC<PersonPlace> = ({ data, place }) => {
             <span>{data.stats.commits}</span>
           </div>
         </div>
+
         <div className="flex gap-2 flex-wrap">
           <h4 className="text-xs flex-grow w-full">Projects:</h4>
           {data.projects_names.map((project, ind) => {
             return (
               <a
                 key={ind}
+
                 href={data.projects_name_urls[ind]}
                 className="flex gap-1 items-center underline text-indigo-300 text-xs"
+
               >
                 <StarIcon size={16} />
                 <span>{project.name}</span>
@@ -302,7 +318,9 @@ export const FirstPlacePerson: React.FC<PersonPlace> = ({ data, place }) => {
       <div className="flex flex-col w-full  ">
         <a
           className="flex justify-between flex-wrap gap-2 "
+
           href={data.loginUrl}
+
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -329,6 +347,7 @@ export const FirstPlacePerson: React.FC<PersonPlace> = ({ data, place }) => {
             <span>{data.stats.commits}</span>
           </div>
         </div>
+
         <div className="flex gap-2 flex-wrap">
           <h4 className="text-xs flex-grow w-full">Projects:</h4>
           {data.projects_names.map((project, ind) => {

@@ -9,8 +9,10 @@ export default function Monthly() {
   const leaderBoardData = use(getData());
 
   const Monthly =
-    leaderBoardData.leaderboard.members[
-    leaderBoardData.leaderboard.members.length - 1
+
+    leaderBoardData.props.leaderboard.members[
+    leaderBoardData.props.leaderboard.members.length - 1
+
     ];
   const direction = useTextDirection();
   const t=useTranslations("LeaderBoard.card")
@@ -19,9 +21,11 @@ export default function Monthly() {
   return (
     <div
       dir={direction}
-      className="bg-lightAccBg min-h-[50dvh] ring-8 rounded-sm shadow-2xl dark:bg-darkAccBg dark:ring-offset-darkAccBg p-5 hover:shadow-discordLight   "
+
+      className="bg-lightAccBg min-h-[50dvh] ring-8 rounded-sm shadow-2xl dark:bg-darkAccBg dark:ring-offset-darkAccBg p-5 hover:shadow-discordLight "
     >
-      <div className="flex justify-between font-inter text-base  text-darkText dark:text-lightText">
+      <div className="flex justify-between">
+
         <div className="flex flex-col gap-3 md:gap-6 ">
           <span>{t("name")}:
             <a
