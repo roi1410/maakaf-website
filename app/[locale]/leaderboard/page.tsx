@@ -1,3 +1,4 @@
+
 import { Metadata } from 'next';
 import { use } from 'react';
 import { getData } from './getData';
@@ -80,3 +81,5 @@ TODO:
 TODO:
 */
 //add UI translate
+
+

@@ -10,6 +10,7 @@ export default function LeaderBoardChart() {
   return (
     <div
       dir={direction}
+
       className="   bg-lightAccBg overflow-y-auto  h-2/3 w-2/3 flex flex-col  gap-6  self-center ring-8 rounded-sm  dark:bg-darkAccBg dark:ring-offset-darkAccBg p-2  "
     >
       {leaderBoardData.props.leaderboard.members.reverse().map((contributor, place) => {
@@ -29,7 +30,9 @@ export default function LeaderBoardChart() {
               />
               <div className="flex flex-col">
                 <a
+
                   className="truncate text-xs self-center font-bold underline decoration-blue-400  cursor-pointer w-20"
+
                   target="_blank"
                   href={`https://github.com/${pathDevelp.name}`}
                 >

@@ -7,12 +7,16 @@ export default function Weekly() {
   const t=useTranslations("LeaderBoard")
 
   const leaderBoardData = use(getData());
+
   const Weekly = leaderBoardData.props.leaderboard.members[leaderBoardData.props.leaderboard.members.length - 1];
+
 
 
   return (
     <div
+
       className="bg-lightAccBg max-h-[40dvh] ring-8 rounded-sm  dark:bg-darkAccBg dark:ring-offset-darkAccBg p-5 shadow-2xl hover:shadow-discordLight "
+
       dir={direction}
     >
       <div className="flex justify-between">
